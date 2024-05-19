@@ -13,18 +13,6 @@ class TaskManagerGUI:
 
         self.create_widgets()
 
-    def load_tasks(self):
-        try:
-            with open("tugas.json", "r") as file:
-                tasks = json.load(file)
-        except FileNotFoundError:
-            tasks = []
-        return tasks
-
-    def save_tasks(self):
-        with open("tugas.json", "w") as file:
-            json.dump(self.tasks, file)
-
     def create_widgets(self):
         self.task_label = tk.Label(pady = 2, text="List Tugas Kamu Hari Ini :)", font =(15))
         self.task_label.pack()
@@ -40,7 +28,19 @@ class TaskManagerGUI:
         done_button.pack(pady=5)
 
         delete_button = tk.Button(self.root, text="Hapus Tugas", command=self.delete_task)
-        delete_button.pack(pady=5)
+        delete_button.pack(pady=5) 
+        
+    def load_tasks(self):
+        try:
+            with open("tugas.json", "r") as file:
+                tasks = json.load(file)
+        except FileNotFoundError:
+            tasks = []
+        return tasks
+
+    def save_tasks(self):
+        with open("tugas.json", "w") as file:
+            json.dump(self.tasks, file)
 
     def refresh_tasks(self):
         self.task_listbox.delete(0, tk.END) 
