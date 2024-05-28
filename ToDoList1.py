@@ -10,7 +10,7 @@ class TaskManagerGUI:
         self.root.geometry("685x390")
         self.root.resizable(False, False)
 
-        self.background_image = Image.open("stl.jpg") 
+        self.background_image = Image.open("...\Assets\stl.jpg") 
         self.background_photo = ImageTk.PhotoImage(self.background_image)
         self.background_label = tk.Label(root, image=self.background_photo)
         self.background_label.place(relwidth=1, relheight=1)
