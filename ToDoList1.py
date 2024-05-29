@@ -7,20 +7,20 @@ class TaskManagerGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("To-Do List Manager")
-        self.root.geometry("685x390")
+        self.root.geometry("420x392")
         self.root.resizable(False, False)
 
-        self.background_image = Image.open("...\Assets\stl.jpg") 
+        self.background_image = Image.open("...\Assets\stl1.jpg") 
         self.background_photo = ImageTk.PhotoImage(self.background_image)
         self.background_label = tk.Label(root, image=self.background_photo)
         self.background_label.place(relwidth=1, relheight=1)
-
+        
         self.tasks = self.load_tasks()
 
         self.create_widgets()
 
     def create_widgets(self):
-        self.task_label = tk.Label(self.root, pady=2, text="List Tugas Kamu Hari Ini :)", font=(15), bg="white", highlightthickness=0)
+        self.task_label = tk.Label(self.root, pady=2, text="List Tugas Kamu Hari Ini :)", font=(15), highlightthickness=0)
         self.task_label.pack()
         self.task_listbox = tk.Listbox(self.root, width=50, height=15)
         self.task_listbox.pack(pady=5)
